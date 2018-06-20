@@ -24,7 +24,8 @@ namespace LoopsInCsharp
 
             int n = 0;
             Console.WriteLine("using while loop");
-            // same output can be achieved using while loop and Do Whileloop
+           
+           // same output can be achieved using while loop and Do Whileloop
             while (n < Numbers.Length)
             {
                 Console.WriteLine(Numbers[n]);
@@ -48,8 +49,8 @@ namespace LoopsInCsharp
                 break;
             }
             Console.WriteLine("use of continue statement");
-            //use of continue ststement
-
+           
+           //use of continue ststement
             for (int p = 0; p < Numbers.Length; p++)
             {
                 if (Numbers[p] == 80)
