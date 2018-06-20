@@ -1,0 +1,50 @@
+//This program illustrates use of call by value
+and call by reference //
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		
+	int i=10,j=20;
+	int u=30,v=40;
+	Program obj1 = new Program();
+	Program obj2 = new Program();	
+		
+	   
+	
+		obj1.Method1(i,j);
+		Console.WriteLine("value of x and y : {0} and {1}",i,j);
+	
+		obj2.Method2(ref u,ref v);
+		Console.WriteLine("value of u and v : {0} and {1}",u,v);
+	
+	}
+	
+	
+// Call by Value 
+
+	public  void Method1(int i,int j)
+	{
+		int x;
+		
+		x=i;
+		i=j;
+		j=x;
+		
+	}
+	
+	
+// call by reference
+ public void Method2(ref int m,ref int n)
+ {
+   int a; 
+   a=m;
+   m=n;
+   n=a;	 
+ }
+	
+}
