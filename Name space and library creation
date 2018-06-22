@@ -1,0 +1,51 @@
+using System;
+using Team1 = Automotive.Bike.wheels;
+using Team2 = Automotive.Car.wheels;
+
+
+class Program
+{
+    public static void Main()
+    {
+        Team1.NumberofWheels();
+        Team2.NumberofWheels();
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Automotive.Bike
+{
+    public class wheels
+    {
+        public static void NumberofWheels()
+        {
+            Console.WriteLine("This function is called from Bike library");
+            Console.WriteLine("Number of wheels are 2 from Team1 using aliasing");
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Automotive.Car
+{
+    public class wheels
+    {
+        public static void NumberofWheels()
+        {
+            Console.WriteLine("This function is called from Car library");
+            Console.WriteLine("Number of wheels are 4 from Team2");
+        }
+    }
+}
