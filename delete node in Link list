@@ -1,0 +1,83 @@
+#include<stdio.h>
+#include<conio.h>
+
+struct node{
+    int data;
+    struct node* next;
+}node;
+
+struct node* head;
+
+void insert(int);
+void print();
+void delete(int);
+
+void delete(int q)
+{
+    struct node* temp1 = head;
+    if(q==1)
+    {
+        head = temp1 -> next;
+        free(temp1);
+        return;
+    }
+    
+    for(int i = 1;i<q-1;i++)
+    {
+        temp1 = temp1 -> next;
+    }
+    
+    struct node* temp2 = temp1 -> next;
+    
+    temp1 -> next = temp2 -> next; 
+    free(temp2);
+    
+}
+
+
+void print()
+{
+    struct node* temp = head;
+    printf("The list is ");
+    while(temp !=0)
+    {
+        printf("%d",temp -> data);
+        temp= temp -> next;
+    }
+    
+}
+
+
+
+void insert(int x)
+{
+    struct node* temp=(struct node*)malloc(sizeof(struct node));
+    temp -> data = x;
+    temp -> next = head;
+   
+   head=temp; 
+}
+
+
+int main()
+{
+    int x,q,d,a;
+    
+    head = NULL;
+    
+    insert(2);
+    insert(4);
+    insert(5);
+    insert(6);
+    print();
+    printf("enter the positon to be deleted");
+    scanf("%d",&a);
+    delete(a);
+    print();
+    
+    
+// insert(data,position)    
+
+    
+    print();
+}
