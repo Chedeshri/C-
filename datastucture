@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<conio.h>
+
+struct node{
+    int data;
+    struct node* next;
+}node;
+
+struct node* head;
+
+void insert(int,int);
+void print();
+
+void insert(int x,int y)
+{
+    
+   //step 1 : create a new node 
+    struct  node* temp1 =(struct node*)malloc(sizeof(struct node));
+    temp1 -> data = x;
+    temp1 -> next = NULL;
+    
+  //step 2 : create a node if node is to enter at 1st position.
+    if(y==1)
+    {
+        temp1 -> next = head;  // set "next" of new node as address of previous "head";
+        head = temp1;           // set new head as new node.
+        return;
+    }
+    
+ //step 3 : to insert node at nth position 1st point to n-1 position (for that create a temparary variable)
+ 
+struct node* temp2  = head; // take a temp varaible and point at 1st node in the list 
+    for(int i=0;i<y-2;i++)  // run a loop until the variable is not pointing to "n-1" node
+    {
+        temp2 = temp2 -> next; // next of every node point to next node, continue this until n-1
+    }
+
+temp1 -> next = temp2 -> next;  // copy address in next of n-1  to next of nth node
+temp2 -> next = temp1; // copy address of new node in next of n-1 node. 
+
+}
+
+void print()
+{
+    printf("\n The list is:");
+    struct node* temp = head;
+    while(temp !=NULL)
+    {
+        printf("%d",temp->data);
+        temp = temp-> next;
+    }
+}
+
+int main()
+{
+    head = NULL;
+// insert(data,position)    
+    insert(1,1);
+    insert(2,2);
+    insert(3,1);    
+    insert(4,2);
+    print();
+}
